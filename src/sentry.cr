@@ -180,9 +180,9 @@ module Sentry
       puts "🤖  starting #{display_name}..."
       run_args = @run_args
       if run_args.size > 0
-        @app_process = Process.new(@run_command, run_args, output: Process::Redirect::Inherit, error: Process::Redirect::Inherit)
+        @app_process = Process.new(@run_command, run_args, input: Process::Redirect::Inherit, output: Process::Redirect::Inherit, error: Process::Redirect::Inherit)
       else
-        @app_process = Process.new(@run_command, output: Process::Redirect::Inherit, error: Process::Redirect::Inherit)
+        @app_process = Process.new(@run_command, input: Process::Redirect::Inherit, output: Process::Redirect::Inherit, error: Process::Redirect::Inherit)
       end
     end
 
