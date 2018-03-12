@@ -229,6 +229,8 @@ module Sentry
     def run
       puts "🤖  Your SentryBot is vigilant. beep-boop..."
 
+      Signal::INT.trap { self.kill }
+
       loop do
         if @should_kill
           puts "🤖  Powering down your SentryBot..."
